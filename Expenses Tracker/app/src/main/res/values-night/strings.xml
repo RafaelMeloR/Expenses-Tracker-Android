@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="expenses_tracker">Expenses Tracker</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign In</string>
+</resources>
