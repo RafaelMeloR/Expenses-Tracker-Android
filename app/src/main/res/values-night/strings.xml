@@ -5,4 +5,5 @@
     <string name="expenses_tracker">Expenses Tracker</string>
     <string name="sign_up">Sign Up</string>
     <string name="already_have_an_account_sign_in">Already have an account? Sign In</string>
+    <string name="login">LOGIN</string>
 </resources>
