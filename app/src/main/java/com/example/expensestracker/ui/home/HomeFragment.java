@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_main);
+       // Check if location manager is empty or not
         ActivityCompat.requestPermissions( requireActivity(),
                 new String[] {android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
                 locationManager = (LocationManager) getSystemService(requireActivity(), LocationManager.class);
@@ -65,6 +65,7 @@ public class HomeFragment extends Fragment {
                     getLocation();
                 }
             }
+     //Request permisison to access the location
     private void OnGPS() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
         builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener() {
@@ -81,6 +82,7 @@ public class HomeFragment extends Fragment {
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+    //get location
     private void getLocation() {
         if (ActivityCompat.checkSelfPermission(
                 requireActivity(),android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
