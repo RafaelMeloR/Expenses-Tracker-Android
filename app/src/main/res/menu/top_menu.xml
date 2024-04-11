@@ -3,6 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/navigation_education"
+        android:icon="@drawable/baseline_data_thresholding_24"
+        android:title="@string/learn"
+        app:showAsAction="ifRoom" />
+
+
+    <item
         android:id="@+id/navigation_logout"
         android:icon="@drawable/outline_door_front_24"
         android:title="@string/logout"

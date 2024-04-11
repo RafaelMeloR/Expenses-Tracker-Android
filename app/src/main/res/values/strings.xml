@@ -29,4 +29,7 @@
     <string name="title_expensesconsult_detail">ExpensesConsult Detail</string>
     <string name="logout">Logout</string>
     <string name="learn">Learn</string>
+    <string name="expenses">Expenses</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
 </resources>

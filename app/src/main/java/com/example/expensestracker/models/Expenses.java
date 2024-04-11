@@ -3,25 +3,37 @@ package com.example.expensestracker.models;
 import java.util.UUID;
 
 public class Expenses {
-    private UUID id;
+    private String id;
     private String dateTime;
     private  String location;
     private Double expense;
     private String category;
+    private String userID;
 
-    public Expenses(String dateTime, String location, Double expense, String category) {
-        this.id = UUID.randomUUID();
+    // Default constructor
+    public Expenses() {
+        this.id =UUID.randomUUID().toString();
+        this.dateTime="";
+        this.location="";
+        this.expense=0.0;
+        this.category="";
+        this.userID="";
+    }
+
+    public Expenses(String dateTime, String location, Double expense, String category, String userID) {
+        this.id = UUID.randomUUID().toString();
         this.dateTime = dateTime; //Calendar.getInstance().getTime();
         this.location = location;
         this.expense = expense;
         this.category = category;
+        this.userID =  userID;
     }
 
-    public UUID getId() {
+    public String  getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -55,5 +67,24 @@ public class Expenses {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Expenses{" +
+                "id='" + id + '\'' +
+                ", dateTime='" + dateTime + '\'' +
+                ", location='" + location + '\'' +
+                ", expense=" + expense +
+                ", category='" + category + '\'' +
+                '}';
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }

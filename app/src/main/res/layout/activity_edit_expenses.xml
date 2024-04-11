@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditExpenses">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDashboard"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:background="@color/black"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:collapseIcon="@drawable/baseline_drag_handle_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:titleTextColor="@color/white" />
+
+    <Button
+        android:id="@+id/updateExpenseEditExpenses"
+        android:layout_width="175dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/update"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerCategoryEditExpenses"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="@+id/spinnerCategoryEditExpenses"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategoryEditExpenses" />
+
+    <Button
+        android:id="@+id/deleteExpenseEditExpenses"
+        android:layout_width="175dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/delete"
+        app:layout_constraintEnd_toEndOf="@+id/updateExpenseEditExpenses"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/updateExpenseEditExpenses"
+        app:layout_constraintTop_toBottomOf="@+id/updateExpenseEditExpenses" />
+
+    <EditText
+        android:id="@+id/editTextExpenseEditExpenses"
+        android:layout_width="345dp"
+        android:layout_height="97dp"
+        android:ems="10"
+        android:hint="Expense: 00.00"
+        android:inputType="numberDecimal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.182" />
+
+    <EditText
+        android:id="@+id/calendarEditExpenses"
+        android:layout_width="345dp"
+        android:layout_height="97dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:hint="Select Date..."
+        android:padding="15dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/editTextExpenseEditExpenses"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/editTextExpenseEditExpenses"
+        app:layout_constraintTop_toBottomOf="@+id/editTextExpenseEditExpenses" />
+
+    <Spinner
+        android:id="@+id/spinnerCategoryEditExpenses"
+        android:layout_width="345dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/calendarEditExpenses"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/calendarEditExpenses"
+        app:layout_constraintTop_toBottomOf="@+id/calendarEditExpenses" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

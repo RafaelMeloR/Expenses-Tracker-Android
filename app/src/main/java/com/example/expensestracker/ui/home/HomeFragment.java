@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,6 +29,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.expensestracker.R;
 import com.example.expensestracker.databinding.FragmentHomeBinding;
 import com.example.expensestracker.models.Expenses;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -109,6 +110,7 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View v = binding.getRoot();
+
         // initiate the date picker and a button
         CalendarView = (EditText) v.findViewById(R.id.calendar);
         // perform click event on edit text
@@ -154,17 +156,16 @@ public class HomeFragment extends Fragment {
                 for (DataSnapshot ss : snapshot.getChildren()) {
                     CategoriesList.add(ss.getKey());
                 }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, CategoriesList);
+                // Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                categoriesSpinner.setAdapter(adapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        // Create the ArrayAdapter using the list of publisher names
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, CategoriesList);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categoriesSpinner.setAdapter(adapter);
 
         saveExpense = (Button) v.findViewById(R.id.saveExpense);
         saveExpense.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +175,8 @@ public class HomeFragment extends Fragment {
                 String location =latitude+" , "+longitude;
                 Double exp = Double.parseDouble(Expense.getText().toString());
                 String cat = categoriesSpinner.getSelectedItem().toString();
-                Expenses expenseNew = new Expenses(date,location,exp,cat);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                Expenses expenseNew = new Expenses(date,location,exp,cat,user.getUid().toString());
                 DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference();
                 HashMap hm= new HashMap<>();
                 hm.put(expenseNew.getId().toString(),expenseNew);
